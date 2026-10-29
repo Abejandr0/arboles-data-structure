@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Diagnóstico de fallas · Moto</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>Diagnóstico de fallas</h1>
+    <nav>
+      <button id="tab-diag" class="tab active">Diagnosticar</button>
+      <button id="tab-edit" class="tab">Editar árbol</button>
+    </nav>
+  </header>
+  <main>
+    <section id="panel">
+      <div id="diag">
+        <p class="label" id="paso">Pregunta</p>
+        <h2 id="texto"></h2>
+        <div id="acciones">
+          <button id="btn-si" class="primary">Sí</button>
+          <button id="btn-no">No</button>
+        </div>
+        <div class="row">
+          <button id="btn-atras" class="link">← Atrás</button>
+          <button id="btn-reiniciar" class="link">Reiniciar</button>
+        </div>
+      </div>
+      <div id="edit" hidden>
+        <p class="label">Nodo seleccionado</p>
+        <p id="sel-tipo" class="muted">Haz clic en un nodo del árbol.</p>
+        <textarea id="sel-texto" rows="3" maxlength="120" disabled></textarea>
+        <div class="row">
+          <button id="btn-guardar" disabled>Guardar texto</button>
+          <button id="btn-dividir" disabled>Convertir en pregunta</button>
+          <button id="btn-podar" disabled>Podar subárbol</button>
+        </div>
+        <button id="btn-reset" class="link">Restaurar árbol original</button>
+      </div>
+      <p id="stats" class="muted"></p>
+    </section>
+    <section id="lienzo"><svg id="svg"></svg></section>
+  </main>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

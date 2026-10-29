@@ -1,0 +1,34 @@
+:root { --ink:#111; --muted:#777; --line:#e4e4e4; --accent:#2f5bea; --bg:#fff; }
+* { box-sizing: border-box; }
+body { margin:0; font-family: Inter, system-ui, sans-serif; color:var(--ink); background:var(--bg); }
+header { display:flex; justify-content:space-between; align-items:center; padding:20px 32px; border-bottom:1px solid var(--line); }
+h1 { font-size:1rem; font-weight:600; margin:0; letter-spacing:.02em; }
+nav { display:flex; gap:4px; }
+.tab { border:0; background:none; padding:6px 12px; color:var(--muted); cursor:pointer; border-radius:6px; font:inherit; }
+.tab.active { color:var(--ink); background:#f3f3f3; }
+main { display:grid; grid-template-columns:340px 1fr; min-height:calc(100vh - 66px); }
+#panel { padding:32px; border-right:1px solid var(--line); display:flex; flex-direction:column; gap:16px; }
+#lienzo { overflow:auto; padding:24px; }
+.label { font-size:.7rem; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin:0; }
+h2 { font-size:1.4rem; font-weight:600; line-height:1.3; margin:0; }
+.muted { color:var(--muted); font-size:.85rem; margin:0; }
+#acciones, .row { display:flex; gap:8px; flex-wrap:wrap; }
+button { font:inherit; padding:9px 16px; border:1px solid var(--line); background:#fff; border-radius:8px; cursor:pointer; }
+button:hover:not(:disabled) { border-color:var(--ink); }
+button:disabled { opacity:.4; cursor:default; }
+button.primary { background:var(--ink); color:#fff; border-color:var(--ink); }
+button.link { border:0; padding:4px 0; color:var(--muted); }
+textarea { width:100%; font:inherit; padding:10px; border:1px solid var(--line); border-radius:8px; resize:vertical; }
+#stats { margin-top:auto; }
+.resultado { color:var(--accent); }
+.edge { stroke:var(--line); stroke-width:1.5; fill:none; }
+.edge.on { stroke:var(--accent); }
+.nodo rect { fill:#fff; stroke:var(--line); stroke-width:1.5; rx:8; }
+.nodo.hoja rect { fill:#fafafa; }
+.nodo text { font-size:11.5px; fill:var(--ink); pointer-events:none; }
+.nodo.on rect { stroke:var(--accent); fill:#f2f5ff; }
+.nodo.actual rect { stroke:var(--accent); stroke-width:2.5; }
+.nodo.sel rect { stroke:var(--ink); stroke-width:2.5; }
+.nodo { cursor:default; } .editando .nodo { cursor:pointer; }
+.etq { font-size:10px; fill:var(--muted); }
+@media (max-width:800px) { main { grid-template-columns:1fr; } #panel { border-right:0; border-bottom:1px solid var(--line); } }
